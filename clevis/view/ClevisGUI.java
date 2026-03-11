@@ -202,8 +202,8 @@ public class ClevisGUI extends JFrame {
      * @param args user input log path
      */
     public static void main(String[] args) {
-        String htmlPath = "SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/log/log.html";
-        String txtPath = "SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/log/log.txt";
+        String htmlPath = "clevis/log/log.html";
+        String txtPath = "clevis/log/log.txt";
 
         SwingUtilities.invokeLater(() -> {
         try {
