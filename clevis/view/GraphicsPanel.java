@@ -1,16 +1,19 @@
 package clevis.view;
 
-import clevis.model.*;
+import clevis.model.Circle;
+import clevis.model.Group;
+import clevis.model.Line;
 import clevis.model.Rectangle;
 import clevis.model.Shape;
+import clevis.model.ShapeManager;
+import clevis.model.Square;
 import java.awt.*;
 import java.awt.geom.*;
 import java.util.*;
 import javax.swing.*;
 
-@SuppressWarnings("ALL")
 public class GraphicsPanel extends JPanel {
-    private ShapeManager shapeManager;
+    private final ShapeManager shapeManager;
     private double scale = 1.0;
     private double offsetX = 0;
     private double offsetY = 0;

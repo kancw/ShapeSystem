@@ -72,28 +72,6 @@ public class Circle extends Shape {
     }
 
     /**
-     * Checks whether this circle intersects with another shape.
-     *
-     * @param other the other shape
-     * @return true if the shapes intersect
-     */
-    @Override
-    public boolean intersect(Shape other) {
-        if (other instanceof Circle) {
-            Circle c = (Circle) other;
-            double distCenters = Math.sqrt(Math.pow(getCenterX() - c.getCenterX(), 2) + Math.pow(getCenterY() - c.getCenterY(), 2));
-            return distCenters <= (this.getR() + c.getR());
-        } else {
-            double[] b1 = this.getBoundingBox();
-            double[] b2 = other.getBoundingBox();
-            return (b1[0] < b2[0] + b2[2] &&
-                    b2[0] < b1[0] + b1[2] &&
-                    b1[1] < b2[1] + b2[3] &&
-                    b2[1] < b1[1] + b1[3]);
-        }
-    }
-
-    /**
      * Returns a textual description of the circle.
      *
      * @return formatted description string

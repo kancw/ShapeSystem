@@ -88,33 +88,6 @@ public class Line extends Shape {
     }
 
     /**
-     * Checks whether this line intersects with another shape.
-     *
-     * @param other the other shape
-     * @return true if the line intersects with the other shape
-     */
-    @Override
-    public boolean intersect(Shape other) {
-        if (other instanceof Line) {
-            Line line2 = (Line) other;
-
-            double d1 = (line2.getX() - getX()) * (getY2() - getY()) - (line2.getY() - getY()) * (getX2() - getX());
-            double d2 = (line2.getX2() - getX()) * (getY2() - getY()) - (line2.getY2() - getY()) * (getX2() - getX());
-            double d3 = (getX() - line2.getX()) * (line2.getY2() - line2.getY()) - (getY() - line2.getY()) * (line2.getX2() - line2.getX());
-            double d4 = (getX2() - line2.getX()) * (line2.getY2() - line2.getY()) - (getY2() - line2.getY()) * (line2.getX2() - line2.getX());
-
-            return (d1 * d2 < 0) && (d3 * d4 < 0);
-        } else {
-            double[] b1 = this.getBoundingBox();
-            double[] b2 = other.getBoundingBox();
-            return (b1[0] < b2[0] + b2[2] &&
-                    b2[0] < b1[0] + b1[2] &&
-                    b1[1] < b2[1] + b2[3] &&
-                    b2[1] < b1[1] + b1[3]);
-        }
-    }
-
-    /**
      * Returns a textual description of the line.
      *
      * @return formatted description string

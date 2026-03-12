@@ -79,22 +79,6 @@ public class Rectangle extends Shape {
     }
 
     /**
-     * Checks whether this rectangle intersects with another shape.
-     *
-     * @param other the other shape
-     * @return true if the bounding boxes overlap
-     */
-    @Override
-    public boolean intersect(Shape other) {
-        double[] b1 = this.getBoundingBox();
-        double[] b2 = other.getBoundingBox();
-        return (b1[0] < b2[0] + b2[2] &&
-                b2[0] < b1[0] + b1[2] &&
-                b1[1] < b2[1] + b2[3] &&
-                b2[1] < b1[1] + b1[3]);
-    }
-
-    /**
      * Returns a textual description of the rectangle.
      *
      * @return formatted description string

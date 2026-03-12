@@ -11,7 +11,7 @@ import java.util.List;
 public class Group extends Shape {
 
     /** List of all shapes in the group */
-    private List<Shape> allShapes = new ArrayList<>();
+    private final List<Shape> allShapes = new ArrayList<>();
 
     /**
      * Constructs a Group object.
@@ -78,22 +78,6 @@ public class Group extends Shape {
     }
 
     /**
-     * Checks whether any shape in the group intersects with another shape.
-     *
-     * @param other the other shape
-     * @return true if at least one member intersects with the other
-     */
-    @Override
-    public boolean intersect(Shape other) {
-        for (Shape s : allShapes) {
-            if (s.intersect(other)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Returns a textual description of the group and its members.
      *
      * @return formatted description string
@@ -106,9 +90,6 @@ public class Group extends Shape {
         }
         return sb.toString();
     }
-
-    /** Placeholder for restoring group members (e.g., undo/redo). */
-    public void restoreMembers(){}
 
     /**
      * Returns a copy of the group’s member list.

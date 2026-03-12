@@ -12,7 +12,7 @@ import java.util.*;
  * undo and redo methods
  */
 public class ShapeManager{
-    private Map<String, Shape> shapes = new LinkedHashMap<>();
+    private final Map<String, Shape> shapes = new LinkedHashMap<>();
     private final List<Shape> zOrderList = new ArrayList<>();
     private final Deque<Command> undoStack = new ArrayDeque<>();
     private final Deque<Command> redoStack = new ArrayDeque<>();
@@ -152,7 +152,7 @@ public class ShapeManager{
             throw new IllegalArgumentException("Shape not found");
         }        
         
-        undoStack.push((Command) new MoveCommand(s, dx, dy));
+        undoStack.push(new MoveCommand(s, dx, dy));
         redoStack.clear();
         s.move(dx, dy);
     }
@@ -253,9 +253,6 @@ public class ShapeManager{
             return "No shapes available.";
         }
 
-        List<Shape> sortedShapes = new ArrayList<>(shapes.values());
-        sortedShapes.sort((a, b) -> Integer.compare(b.getZOrder(), a.getZOrder()));
-
         StringBuilder sb = new StringBuilder();
         for (Shape s : shapes.values()) {
             if (s instanceof Group) {
@@ -312,15 +309,6 @@ public class ShapeManager{
      */
     private double round(double val) {
         return (double) Math.round(val * rounding) / rounding;
-    }
-
-    /**
-     * Retrieves a shape by name
-     * @param name the name of the shape
-     * @return the shape object
-     */
-    public Shape get(String name) {
-        return shapes.get(name);
     }
 
     /**

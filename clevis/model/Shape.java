@@ -57,29 +57,12 @@ public abstract class Shape {
     public abstract boolean coverPoint(double x, double y);
 
     /**
-     * Checks whether this shape intersects with another shape.
-     *
-     * @param other the other shape to test against
-     * @return true if the shapes intersect, false otherwise
-     */
-    public abstract boolean intersect(Shape other);
-
-    /**
      * Returns the z-order of this shape.
      *
      * @return the z-order value (higher means drawn later)
      */
     public int getZOrder() {
         return zOrder;
-    }
-
-    /**
-     * Sets the z-order of this shape.
-     *
-     * @param zOrder the new z-order value
-     */
-    public void setZOrder(int zOrder) { 
-        this.zOrder = zOrder; 
     }
 
     /**
