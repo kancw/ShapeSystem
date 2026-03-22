@@ -89,24 +89,6 @@ public class Rectangle extends Shape {
     }
 
     /**
-     * Returns the width of the rectangle.
-     *
-     * @return width
-     */
-    public double getWidth() {
-        return width;
-    }
-
-    /**
-     * Returns the height of the rectangle.
-     *
-     * @return height
-     */
-    public double getHeight() {
-        return height;
-    }
-
-    /**
      * Returns the x-coordinate of the top-left corner.
      *
      * @return x-coordinate
